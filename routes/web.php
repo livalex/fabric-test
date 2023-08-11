@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/{path?}', function () {
     return view('welcome');
-});
+})->where('path', '.*');
+
+//Posts endpoint
+// Route::get('/posts', [PostsController::class, 'index']);

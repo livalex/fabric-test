@@ -1,0 +1,17 @@
+.wallpaper {
+  width: 35%;
+  height: 35%;
+  margin-bottom: 1rem;
+}
+
+.message {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
