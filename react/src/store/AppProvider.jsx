@@ -3,14 +3,20 @@ import AppContext from "./app-context";
 
 const defaultAppState = {
   searchedLink: "",
+  setLink: () => {},
+  sortBy: "",
+  setSortBy: () => {},
 };
 
 const AppProvider = (props) => {
   const [link, setLink] = useState("");
+  const [sortBy, setSortBy] = useState("");
 
   const appContext = {
     link,
     setLink,
+    sortBy,
+    setSortBy,
   };
 
   return (

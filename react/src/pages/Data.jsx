@@ -5,12 +5,13 @@ import useHttp from "../hooks/use-http";
 import { refreshContextError } from "../utils/constants";
 import MoviesTable from "../components/moviesTable/MoviesTable";
 import axios from "axios";
+import SortByMenu from "../components/sortByMenu/SortByMenu";
 
 const Data = (props) => {
   const { fallback } = props;
   const ctx = useContext(AppContext);
   const navigate = useNavigate();
-  const { link, setLink } = ctx;
+  const { link, sortBy } = ctx;
   const { isLoading, error, sendRequest: fetchMovies } = useHttp();
   const [movies, setMovies] = useState([]);
 
@@ -27,7 +28,26 @@ const Data = (props) => {
     fetchMovies({ url: link }, handleMovies);
   }, [link]);
 
-  let content = <MoviesTable movies={movies} />;
+  useEffect(() => {
+    setMovies((prevMovies) =>
+      [...prevMovies].sort((a, b) => {
+        const nameA = a[sortBy];
+        const nameB = b[sortBy];
+        if (typeof nameA === "string") {
+          return nameA.localeCompare(nameB);
+        } else {
+          return nameA - nameB;
+        }
+      })
+    );
+  }, [sortBy]);
+
+  let content = (
+    <>
+      <SortByMenu />
+      <MoviesTable movies={movies} />
+    </>
+  );
 
   if (isLoading) {
     content = fallback;
