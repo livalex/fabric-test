@@ -42,18 +42,20 @@ class DataController extends Controller
         // error_log($value);
         // $array = (array) $request;
         foreach (collect($request)->all() as $key => $value) {
-        
-            $movieData = new Movie();
-            $movieData->Title = $value['Title'];
-            $movieData->Year = $value['Year'];
-            $movieData->imdbID = $value['imdbID'];
-            $movieData->Type = $value['Type'];
-            $movieData->save();
+            if (!Movie::where('imdbID', $value['imdbID'])->exists()) {
             
-            $posterData = new Poster();
-            $posterData->imdbID = $value['imdbID'];
-            $posterData->Poster = $value['Poster'];
-            $posterData->save();
+                $movieData = new Movie();
+                $movieData->Title = $value['Title'];
+                $movieData->Year = $value['Year'];
+                $movieData->imdbID = $value['imdbID'];
+                $movieData->Type = $value['Type'];
+                $movieData->save();
+                
+                $posterData = new Poster();
+                $posterData->imdbID = $value['imdbID'];
+                $posterData->Poster = $value['Poster'];
+                $posterData->save();
+            }
         }
     }
 
