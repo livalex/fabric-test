@@ -16,8 +16,8 @@ class DataController extends Controller
     public function index()
     {
         $movieData = Movie::all();
-        $posterDataData = Poster::all();
-        return ['movies' => $movieData, 'posters' => $posterDataData];
+        $posterData = Poster::all();
+        return ['movies' => $movieData, 'posters' => $posterData];
     }
 
     /**

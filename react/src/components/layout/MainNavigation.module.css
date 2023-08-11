@@ -8,12 +8,6 @@
   background-color: rgb(13, 130, 107);
 }
 
-@media (min-width: 40rem) {
-  .header {
-    padding: 0% 10%;
-  }
-}
-
 .logo {
   font-size: 1rem;
   margin-right: 2rem;
@@ -33,9 +27,6 @@
 
 .nav li {
   margin-left: 0.5rem;
-  /* width: 50%;
-  height: 50%;
-  font-size: 1.25rem; */
 }
 
 @media (min-width: 34.5rem) {
