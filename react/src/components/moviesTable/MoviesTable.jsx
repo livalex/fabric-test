@@ -25,10 +25,12 @@ const MoviesTable = (props) => {
     setPage(0);
   };
 
+  const definedMovies = movies === undefined ? [] : movies;
+
   return (
     <div className={classes.container}>
       <Paper>
-        <TableContainer style={{ maxHeight: 800 }}>
+        <TableContainer id="table" style={{ maxHeight: 800 }}>
           <Table stickyHeader>
             <TableHead>
               <TableRow>
@@ -40,7 +42,7 @@ const MoviesTable = (props) => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {movies
+              {definedMovies
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((movie) => (
                   <TableRow key={movie.Title}>
@@ -58,7 +60,7 @@ const MoviesTable = (props) => {
           <TablePagination
             rowsPerPageOptions={[5, 10, 25, 100]}
             component="div"
-            count={movies.length}
+            count={definedMovies.length}
             rowsPerPage={rowsPerPage}
             page={page}
             onPageChange={handleChangePage}
