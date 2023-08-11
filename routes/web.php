@@ -17,6 +17,3 @@ use App\Http\Controllers\PostsController;
 Route::get('/{path?}', function () {
     return view('welcome');
 })->where('path', '.*');
-
-//Posts endpoint
-// Route::get('/posts', [PostsController::class, 'index']);

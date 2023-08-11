@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AppContext from "../store/app-context";
 import useHttp from "../hooks/use-http";
-import { refreshContextError } from "../utils/constants";
+import { postLink, refreshContextError } from "../utils/constants";
 import MoviesTable from "../components/moviesTable/MoviesTable";
 import axios from "axios";
 import SortByMenu from "../components/sortByMenu/SortByMenu";
@@ -20,9 +20,9 @@ const Data = (props) => {
       const { Search: movies } = response;
       setMovies(movies);
       axios
-        .post("http://127.0.0.1:8000/api/post", movies)
-        .then((response) => console.log("Stocat in baza de date"))
-        .catch((error) => console.log(error));
+        .post(postLink, movies)
+        .then((response) => console.log("Database updated"))
+        .catch((error) => alert(error));
     };
 
     fetchMovies({ url: link }, handleMovies);

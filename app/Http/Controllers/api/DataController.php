@@ -15,7 +15,6 @@ class DataController extends Controller
      */
     public function index()
     {
-        //
         $movieData = Movie::all();
         $posterDataData = Poster::all();
         return ['movies' => $movieData, 'posters' => $posterDataData];
@@ -34,13 +33,6 @@ class DataController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        // object
-        // error_log(gettype($request));
-        // error_log($request);
-        // Log::channel('stderr')->info('Something happened!');
-        // error_log($value);
-        // $array = (array) $request;
         foreach (collect($request)->all() as $key => $value) {
             if (!Movie::where('imdbID', $value['imdbID'])->exists()) {
             

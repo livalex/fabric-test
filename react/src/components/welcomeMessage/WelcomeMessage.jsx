@@ -1,3 +1,4 @@
+import React from "react";
 import classes from "./WelcomeMessage.module.css";
 import wallpaper from "../../assets/matrix.jpg";
 
