@@ -3,6 +3,7 @@ import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import AppContext from "../../store/app-context";
+import classes from "./SortByMenu.module.css";
 
 const SortByMenu = (props) => {
   const ctx = useContext(AppContext);
@@ -18,8 +19,9 @@ const SortByMenu = (props) => {
   };
 
   return (
-    <div>
+    <div className={classes.button}>
       <Button
+        variant="contained"
         id="demo-positioned-button"
         aria-controls={open ? "demo-positioned-menu" : undefined}
         aria-haspopup="true"

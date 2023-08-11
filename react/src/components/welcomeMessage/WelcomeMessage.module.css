@@ -1,12 +1,16 @@
 .wallpaper {
-  width: 35%;
-  height: 35%;
-  margin-bottom: 1rem;
+  margin-top: 0rem;
+  width: 80%;
+  height: 100%;
 }
 
 .message {
-  font-size: 3rem;
+  font-size: 1.5rem;
   font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
 }
 
 .container {
@@ -14,4 +18,29 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+}
+
+@media (min-height: 40rem) {
+  .wallpaper {
+    margin-top: 25%;
+  }
+}
+
+@media (min-width: 40rem) {
+  .wallpaper {
+    margin-top: 0rem;
+    min-width: 600px;
+    width: 35%;
+    height: 35%;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (min-width: 40rem) and (min-height: 40rem) {
+  .message {
+    font-size: 3rem;
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+  }
 }
